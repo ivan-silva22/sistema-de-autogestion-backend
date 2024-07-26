@@ -16,3 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(corse()); 
 app.use(morgan('dev'));
+
+app.get('/prueba', (req, res) =>{
+    res.send('Esta es una prueba de mi ruta get')
+    res.status()
+})
