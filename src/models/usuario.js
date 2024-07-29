@@ -1,6 +1,5 @@
 import mongoose, {Schema} from "mongoose";
 
-
 const estadoAcademico = new Schema({
     nombreMateria: {
         type: String,
@@ -20,6 +19,33 @@ const estadoAcademico = new Schema({
         minLength: 2,
         maxLength: 300,
     }
+});
+
+const cursando = new Schema({
+    anio: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 5,
+    },
+    dic: {
+        type: String,
+        required: true,
+        minLength: 2,
+        maxLength: 100,
+    },
+    nombreMateria: {
+        type: String,
+        required: true,
+        minLength: 2,
+        maxLength: 500,
+    },
+    horarios: {
+        type: String,
+        required: true,
+        minLength: 2,
+        maxLength: 500,
+    }
 })
 
 const usuarioSchema = new Schema({
@@ -37,7 +63,7 @@ const usuarioSchema = new Schema({
     },
     dni: {
         type: Number,
-        required: true,
+        required: true, 
         unique: true,
         validate: {
             validator: function(v){
@@ -71,9 +97,18 @@ const usuarioSchema = new Schema({
         type: [estadoAcademico],
         validate: {
             validator: function(v) {
-                return Array.isArray(v) && v.length > 0;
+                return Array.isArray(v);
             },
             message: 'El estado académico debe ser un array con al menos un objeto'
+        }
+    },
+    cursando: {
+        type: [cursando],
+        validate: {
+            validator: function(v) {
+                return Array.isArray(v);
+            },
+            message: 'El estado  debe ser un array con al menos un objeto'
         }
     }
 });
