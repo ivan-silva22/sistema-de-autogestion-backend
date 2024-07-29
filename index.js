@@ -5,6 +5,7 @@ import morgan from "morgan";
 import path from "path";
 import './src/database/dbConnection';
 import usuarioRouter from "./src/routes/usuarios.routes";
+import carreraRouter from "./src/routes/carrera.routes";
 
 const app = express();
 dotenv.config();
@@ -22,3 +23,4 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'/public')));
 
 app.use("/api", usuarioRouter);
+app.use('/api', carreraRouter);
