@@ -15,3 +15,12 @@ export const crearAlumno = async(req, res)=>{
     }
 }
 
+export const listarAlumnos = async (req, res) =>{
+    try {   
+        const alumnos = await Usuario.find();
+        res.status(200).json(alumnos);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
