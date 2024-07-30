@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 import morgan from "morgan";
 import path from "path";
 import './src/database/dbConnection';
-import usuarioRouter from "./src/routes/usuarios.routes";
+import alumnoRouter from "./src/routes/alumnos.routes";
 import carreraRouter from "./src/routes/carrera.routes";
 import examenRouter from "./src/routes/examen.routes";
 
@@ -23,6 +23,6 @@ app.use(corse());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'/public')));
 
-app.use("/api", usuarioRouter);
-app.use('/api', carreraRouter);
-app.use('/api', examenRouter);
+app.use("/api", alumnoRouter);
+// app.use('/api', carreraRouter);
+// app.use('/api', examenRouter);

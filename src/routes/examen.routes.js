@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { incribirExamen } from "../controllers/examen.controllers";
+// import { Router } from "express";
+// import { incribirExamen } from "../controllers/examen.controllers";
 
-const router = Router();
+// const router = Router();
 
-router.route('/examenes').post(incribirExamen)
+// router.route('/examenes').post(incribirExamen)
 
-export default router;
+// export default router;
