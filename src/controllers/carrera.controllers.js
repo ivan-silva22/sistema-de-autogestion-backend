@@ -21,3 +21,15 @@ export const agregarCarrera = async (req, res) => {
         })
     }
 }
+
+export const listarCarreras = async (req, res) =>{
+    try {
+        const carreras = await Carrera.find();
+        res.status(200).json(carreras);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Error al intentar obtener las carreras"
+        })
+    }
+}
