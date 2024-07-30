@@ -6,6 +6,7 @@ import path from "path";
 import './src/database/dbConnection';
 import usuarioRouter from "./src/routes/usuarios.routes";
 import carreraRouter from "./src/routes/carrera.routes";
+import examenRouter from "./src/routes/examen.routes";
 
 const app = express();
 dotenv.config();
@@ -24,3 +25,4 @@ app.use(express.static(path.join(__dirname,'/public')));
 
 app.use("/api", usuarioRouter);
 app.use('/api', carreraRouter);
+app.use('/api', examenRouter);

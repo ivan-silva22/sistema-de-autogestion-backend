@@ -24,3 +24,16 @@ export const listarAlumnos = async (req, res) =>{
     }
 }
 
+export const inscribirMateria = async(req, res) =>{
+    try {
+        const { materias } = req.body;
+        res.status(200).json(materias);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Error al intentar inscribirse a las materias"
+        })
+    }
+}
+
+
