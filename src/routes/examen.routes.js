@@ -1,8 +1,9 @@
-// import { Router } from "express";
-// import { incribirExamen } from "../controllers/examen.controllers";
+import { Router } from "express";
+import { inscripcionExamenFinal, obtenerExamenesFinales } from "../controllers/examenes.controllers";
+import validarExamen from "../helpers/validarExamen";
 
-// const router = Router();
+const router = Router();
 
-// router.route('/examenes').post(incribirExamen)
+router.route('/finales').post(validarExamen ,inscripcionExamenFinal).get(obtenerExamenesFinales);
 
-// export default router;
+export default router;

@@ -10,6 +10,6 @@ import validarAlumno from "../helpers/validarAlumno";
 const router = Router();
 
 router.route("/alumnos").post(validarAlumno, crearAlumno).get(listarAlumnos);
-router.route("/alumnos/:id").get(obtenerAlumno).put(actualizarAlumno); 
+router.route("/alumnos/:id").get(obtenerAlumno).put(validarAlumno, actualizarAlumno); 
 
 export default router;
