@@ -2,14 +2,22 @@ import Alumno from "../models/alumno";
 
 export const crearAlumno = async(req, res)=>{
     try {
-        const usuarioNuevo = new Alumno(req.body);
-        await usuarioNuevo.save();
+        const {legajo} = req.body;
+        let alumno = await Alumno.findOne({legajo});
+        if(alumno){
+            return res.status(400).json({
+                mensaje: "El legajo ya existe"
+            })
+        }
+        alumno = new Alumno(req.body);
+        await alumno.save();
         res.status(201).json({
-            mensaje: "El alumno se guardo en la base de datos correctamente"
+            mensaje: "El alumno se guardo en la base de datos correctamente",
+            alumno
         })
     } catch (error) {
         console.log(error);
-        res.status(404).json({
+        res.status(400).json({
             mensaje: 'Error al intentar agregar el alumno'
         })
     }

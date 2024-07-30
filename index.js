@@ -23,6 +23,6 @@ app.use(corse());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'/public')));
 
-app.use("/api", alumnoRouter);
+app.use("/api/auth", alumnoRouter);
 // app.use('/api', carreraRouter);
 // app.use('/api', examenRouter);
