@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+    actualizarAlumno,
   crearAlumno,
   listarAlumnos,
   obtenerAlumno,
@@ -9,6 +10,6 @@ import validarAlumno from "../helpers/validarAlumno";
 const router = Router();
 
 router.route("/alumnos").post(validarAlumno, crearAlumno).get(listarAlumnos);
-router.route("/alumnos/:id").get(obtenerAlumno);
+router.route("/alumnos/:id").get(obtenerAlumno).put(actualizarAlumno); 
 
 export default router;

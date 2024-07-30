@@ -47,5 +47,16 @@ export const obtenerAlumno = async(req, res) =>{
     }
 }
 
+export const actualizarAlumno = async(req, res) =>{
+    try {
+        const alumnoActualizado = await Alumno.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).json(alumnoActualizado);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Erro no se puede actualizar el alumno"
+        })
+    }
+}
 
 

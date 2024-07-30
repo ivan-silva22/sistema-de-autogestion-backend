@@ -24,5 +24,5 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname,'/public')));
 
 app.use("/api/auth", alumnoRouter);
-// app.use('/api', carreraRouter);
+app.use('/api/academico', carreraRouter);
 // app.use('/api', examenRouter);
