@@ -7,6 +7,7 @@ import './src/database/dbConnection';
 import alumnoRouter from "./src/routes/alumnos.routes";
 import carreraRouter from "./src/routes/carrera.routes";
 import examenRouter from "./src/routes/examen.routes";
+import adminRouter from "./src/routes/admin.routes";
 
 const app = express();
 dotenv.config();
@@ -26,3 +27,4 @@ app.use(express.static(path.join(__dirname,'/public')));
 app.use("/api/auth", alumnoRouter);
 app.use('/api/academico', carreraRouter);
 app.use('/api/examenes', examenRouter);
+app.use('/api/login', adminRouter);
