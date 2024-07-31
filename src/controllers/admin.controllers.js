@@ -22,3 +22,15 @@ export const agregarAdmin = async(req, res) =>{
         })
     }
 }
+
+export const obtenerAdmin = async(req, res) =>{
+    try {
+        const admin = await Administradir.findById(req.params.id);
+        res.status(200).json(admin);
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Error, no se puede obtener al administrador"
+        })
+    }
+}
