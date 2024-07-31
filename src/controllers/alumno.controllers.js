@@ -1,8 +1,9 @@
 import Alumno from "../models/alumno";
+import bcrypt from "bcrypt";
 
 export const crearAlumno = async(req, res)=>{
     try {
-        const {legajo} = req.body;
+        const {legajo, password} = req.body;
         let alumno = await Alumno.findOne({legajo});
         if(alumno){
             return res.status(400).json({
@@ -10,6 +11,8 @@ export const crearAlumno = async(req, res)=>{
             })
         }
         alumno = new Alumno(req.body);
+        const salt = bcrypt.genSaltSync(10);
+        alumno.password = bcrypt.hashSync(password, salt);
         await alumno.save();
         res.status(201).json({
             mensaje: "El alumno se guardo en la base de datos correctamente",
@@ -59,4 +62,14 @@ export const actualizarAlumno = async(req, res) =>{
     }
 }
 
+export const login = async(req, res) =>{
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Error, legajo o password invalidos"
+        })
+    }
+}
 

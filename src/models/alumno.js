@@ -39,7 +39,6 @@ const alumnoSchema = new Schema({
     password: {
         type: String,
         required: true,
-        unique: true,
     },
     estadoAcademico: {
         type: Array,

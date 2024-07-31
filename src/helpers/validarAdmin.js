@@ -15,8 +15,8 @@ const validarAdmin = [
     check("password")
         .notEmpty()
         .withMessage("La contraseña es un campo obligatorio")
-        .matches(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/)
-        .withMessage("La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula."),
+        .isLength({ min: 8, max: 16 })
+        .withMessage("La contraseña debe tener al entre 8 y 16 caracteres."),
         (req, res, next) =>{
             resultadoValidacion(req, res, next);
         }

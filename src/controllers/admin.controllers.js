@@ -1,8 +1,9 @@
 import Administradir from "../models/admin";
+import bcrypt from "bcrypt";
 
 export const agregarAdmin = async(req, res) =>{
     try {
-        const { email } = req.body;
+        const { email, password } = req.body;
         let admin = await Administradir.findOne({email});
         if(admin){
             return res.status(400).json({
@@ -10,6 +11,8 @@ export const agregarAdmin = async(req, res) =>{
             })
         }
         admin = new Administradir(req.body);
+        const salt = bcrypt.genSaltSync(10);
+        admin.password = bcrypt.hashSync(password, salt);
         await admin.save();
         res.status(201).json({
             mensaje: "El administrador se creo correctamente",

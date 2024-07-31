@@ -17,8 +17,6 @@ const adminSchema = new Schema({
   password: {
     type: String,
     required: true,
-    unique: true,
-    match: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
   }
 });
 
