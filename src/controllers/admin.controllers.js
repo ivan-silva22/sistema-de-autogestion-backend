@@ -37,3 +37,31 @@ export const obtenerAdmin = async(req, res) =>{
         })
     }
 }
+
+export const loginAdmin = async(req, res) =>{
+    try {
+        const {email, password} = req.body;
+        let admin = await Administradir.findOne({email});
+        if(!email){
+            return res.status(404).json({
+                mensaje: "El email o password es incorrecto - email"
+            })
+        }
+        const passwordValido = bcrypt.compareSync(password, admin.password);
+        if(!passwordValido){
+            return res.status(404).json({
+                mensaje: "El email o password es incorrecto - password"
+            })
+        }
+        res.status(200).json({
+            mensaje: "Email y password correctos",
+            nombreAdmin: admin.nombreAdmin,
+            email: admin.email
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({
+            mensaje: "Error, no se puede iniciar sesion"
+        })
+    }
+}

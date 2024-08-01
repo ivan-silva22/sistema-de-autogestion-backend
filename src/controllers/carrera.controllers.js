@@ -25,6 +25,7 @@ export const agregarCarrera = async (req, res) => {
 export const listarCarreras = async (req, res) =>{
     try {
         const carreras = await Carrera.find();
+        console.log(carreras)
         res.status(200).json(carreras);
     } catch (error) {
         console.log(error);

@@ -27,4 +27,4 @@ app.use(express.static(path.join(__dirname,'/public')));
 app.use("/api/auth", alumnoRouter);
 app.use('/api/academico', carreraRouter);
 app.use('/api/examenes', examenRouter);
-app.use('/api/login', adminRouter);
+app.use('/api/admin', adminRouter);

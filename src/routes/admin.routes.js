@@ -1,11 +1,13 @@
 import { Router } from "express";
-import { agregarAdmin, obtenerAdmin } from "../controllers/admin.controllers";
+import { agregarAdmin, loginAdmin, obtenerAdmin } from "../controllers/admin.controllers";
 import validarAdmin from "../helpers/validarAdmin";
+import validarAdminLogin from "../helpers/validarAdminLogin";
 
 const router = Router();
 
-router.route('/admin').post(validarAdmin, agregarAdmin);
-router.route('/admin/:id').get(obtenerAdmin);
+router.route('/nuevo').post(validarAdmin, agregarAdmin);
+router.route('/nuevo/:id').get(obtenerAdmin);
+router.route("/login").post(validarAdminLogin, loginAdmin);
 
 
 export default router;
