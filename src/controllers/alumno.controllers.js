@@ -40,7 +40,8 @@ export const listarAlumnos = async (req, res) => {
 
 export const obtenerAlumno = async (req, res) => {
   try {
-    const alumno = await Alumno.findById(req.params.id);
+    const dni = parseInt(req.params.id);
+    const alumno = await Alumno.findOne({dni: dni});
     res.status(200).json(alumno);
   } catch (error) {
     console.log(error);
