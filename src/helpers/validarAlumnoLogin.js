@@ -2,12 +2,12 @@ import { check } from "express-validator";
 import resultadoValidacion from "./resultadoValidacion";
 
 const validarAlumnoLogin = [
-  check("legajo")
+  check("dni")
     .notEmpty()
-    .withMessage("El legajo del alumno es obligatorio")
+    .withMessage("El dni del alumno es obligatorio")
     .isNumeric()
-    .isLength({ max: 4 })
-    .withMessage("El legajo debe tener como maximo 4 caracteres"),
+    .isLength({ max: 10 })
+    .withMessage("El dni debe tener como maximo 10 caracteres"),
   check("password")
     .notEmpty()
     .withMessage("El password es obligatorio")

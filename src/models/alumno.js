@@ -105,7 +105,6 @@ const alumnoSchema = new Schema({
     },
     materiasAdeuda: {
         type: String,
-        minLength: 3,
     },
     tituloSec: {
         type: Boolean
