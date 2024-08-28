@@ -31,7 +31,7 @@ const alumnoSchema = new Schema({
         unique: true,
         maxLength: 20
     },
-    fechaNacimiento: {
+    fechaNac: {
         type: String,
         required: true,
         maxLength: 60,

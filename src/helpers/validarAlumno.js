@@ -30,12 +30,6 @@ const validarAlumno = [
       "Tecnicatura Superior en Desarrollo de Software",
     ])
     .withMessage("La carrera debe ser una opcion valida"),
-  check("legajo")
-    .notEmpty()
-    .withMessage("El legajo del alumno es obligatorio")
-    .isNumeric()
-    .isLength({ max: 4 })
-    .withMessage("El legajo debe tener como maximo 4 caracteres"),
   check("password")
     .notEmpty()
     .withMessage("El password es obligatorio")
