@@ -103,8 +103,22 @@ const alumnoSchema = new Schema({
         minLength: 5,
         maxLength: 800,
     },
-    materiasAdeuda: {
+    siAdeuda: {
+        type: Boolean,
+    },
+    noAdeuda: {
+        type: Boolean,
+    },
+    nombreMateriaAdeuda: {
         type: String,
+        minLength: {
+            value: 2,
+            message: 'La cantidad minima de caracteres es de 2 dígitos'
+        },
+        maxLength: {
+            value: 1000,
+            message: 'La cantidad máxima de caracteres es de 1000 dígitos'
+        }
     },
     tituloSec: {
         type: Boolean
