@@ -3,11 +3,11 @@ import bcrypt from "bcrypt";
 
 export const crearAlumno = async (req, res) => {
   try {
-    const { legajo, password } = req.body;
-    let alumno = await Alumno.findOne({ legajo });
+    const { dni, password } = req.body;
+    let alumno = await Alumno.findOne({ dni });
     if (alumno) {
       return res.status(400).json({
-        mensaje: "El legajo ya existe",
+        mensaje: "El dni ya existe",
       });
     }
     alumno = new Alumno(req.body);
@@ -73,25 +73,24 @@ export const actualizarAlumno = async (req, res) => {
 
 export const loginAlumno = async (req, res) => {
   try {
-    const { legajo, password } = req.body;
-    let alumno = await Alumno.findOne({ legajo });
+    const { dni, password } = req.body;
+    let alumno = await Alumno.findOne({ dni });
     if (!alumno) {
       return res.status(404).json({
-        mensaje: "El lagajo o password es incorrecto - legajo",
+        mensaje: "El DNI o password es incorrecto - DNI",
       });
     }
     const passwordValido = bcrypt.compareSync(password, alumno.password);
     if (!passwordValido) {
       res.status(404).json({
-        mensaje: "El legajo o password es incorrecto - password",
+        mensaje: "El DNI o password es incorrecto - password",
       });
     }
     res.status(200).json({
-      mensaje: "El legajo y password correctos",
+      mensaje: "El DNI y password correctos",
       nombres: alumno.nombres,
       apellido: alumno.apellido,
       dni: alumno.dni,
-      legajo: alumno.legajo,
       carrera: alumno.carrera,
       estadoAcademico: alumno.estadoAcademico,
       cursando: alumno.cursando,

@@ -1,3 +1,4 @@
+
 import mongoose, {Schema} from "mongoose";
 
 const alumnoSchema = new Schema({
@@ -24,17 +25,61 @@ const alumnoSchema = new Schema({
             message: 'No es un DNI valido'
         }
     },
+    cuil: {
+        type: String,
+        required: true,
+        unique: true,
+        maxLength: 20
+    },
+    fechaNacimiento: {
+        type: String,
+        required: true,
+        maxLength: 60,
+    },
+    provincia: {
+        type: String,
+        required: true,
+        minLength: 3,
+        maxLength: 400,
+    },
+    domicilio: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 800,
+    },
+    localidad: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 800,
+    },
+    celuPersonal: {
+        type: Number,
+        required: true,
+        maxLength: 10
+    },
+    celuEmergencia: {
+        type: Number,
+        required: true,
+        maxLength: 10
+    },
+    email: {
+        type: String,
+        required: true,
+        match:
+       /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+    },
+    periodoLectivo: {
+        type: Number,
+        required: true,
+        maxLength: 5,
+    },
     carrera: {
         type: String,
         required: true,
         enum: ['Profesorado en Historia', 'Profesorado en Matemática', 'Tecnicatura en Gestion Agropecuaria', 'Tecnicatura en Agroindustria de los Alimentos', 'Tecnicatura Superior en Desarrollo de Software'],
         message: 'La carrera seleccionada no es válida'
-    },
-    legajo: {
-        type: Number,
-        required: true,
-        min: 4,
-        unique: true,
     },
     password: {
         type: String,
@@ -45,7 +90,47 @@ const alumnoSchema = new Schema({
     },
     cursando: {
         type: Array,
+    },
+    titulo: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 800,
+    },
+    escuela: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 800,
+    },
+    materiasAdeuda: {
+        type: String,
+        minLength: 3,
+    },
+    tituloSec: {
+        type: Boolean
+    },
+    fotos: {
+        type: Boolean
+    },
+    actaNacimiento: {
+        type: Boolean,
+    },
+    constanciaEstudio: {
+        type: Boolean
+    },
+    copiaDNI: {
+        type: Boolean
+    },
+    psicoFisico: {
+        type: Boolean,
+    },
+    constanciaCuil: {
+        type: Boolean
     }
+
+
+
 });
 
 const Alumno = mongoose.model('alumno', alumnoSchema);
