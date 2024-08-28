@@ -106,9 +106,26 @@ const alumnoSchema = new Schema({
     materiasAdeuda: {
         type: String,
     },
-    documentos: {
-        type: Map,
-        of: mongoose.Schema.Types.Mixed
+    tituloSec: {
+        type: Boolean
+    },
+    fotos: {
+        type: Boolean
+    },
+    actaNacimiento: {
+        type: Boolean,
+    },
+    constanciaEstudio: {
+        type: Boolean
+    },
+    copiaDNI: {
+        type: Boolean
+    },
+    psicoFisico: {
+        type: Boolean,
+    },
+    constanciaCuil: {
+        type: Boolean
     }
 });
 
