@@ -99,7 +99,7 @@ export const loginAlumno = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(404).json({
-      mensaje: "Error, legajo o password invalidos",
+      mensaje: "Error, DNI o password invalidos",
     });
   }
 };

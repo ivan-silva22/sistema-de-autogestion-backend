@@ -17,8 +17,8 @@ const validarAlumno = [
     .withMessage("El DNI del alumno es obligatorio")
     .isNumeric()
     .withMessage("El DNI debe ser numerico")
-    .isLength({ max: 8 })
-    .withMessage("El DNI debe tener hasta 8 caracteres"),
+    .isLength({ max: 10 })
+    .withMessage("El DNI debe tener hasta 10 caracteres"),
   check("carrera")
     .notEmpty()
     .withMessage("La carrera del alumno es un dato obligatorio")
