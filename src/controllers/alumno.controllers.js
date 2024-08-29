@@ -10,9 +10,10 @@ export const crearAlumno = async (req, res) => {
         mensaje: "El dni ya existe",
       });
     }
-    alumno = new Alumno(req.body);
+    alumno = new Alumno(req.body);  
     const salt = bcrypt.genSaltSync(10);
     alumno.password = bcrypt.hashSync(password, salt);
+    console.log(alumno)
     await alumno.save();
     res.status(201).json({
       mensaje: "El alumno se guardo en la base de datos correctamente",
