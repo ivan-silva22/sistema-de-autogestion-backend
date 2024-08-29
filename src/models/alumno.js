@@ -28,7 +28,6 @@ const alumnoSchema = new Schema({
     cuil: {
         type: String,
         required: true,
-        unique: true,
         maxLength: 20
     },
     fechaNac: {

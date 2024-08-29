@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 export const crearAlumno = async (req, res) => {
   try {
     const { dni, password } = req.body;
-    let alumno = await Alumno.findOne({ dni });
+    let alumno = await Alumno.findOne({dni: dni });
     if (alumno) {
       return res.status(400).json({
         mensaje: "El dni ya existe",
